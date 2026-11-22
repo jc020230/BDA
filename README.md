@@ -16,9 +16,9 @@
 BDA/
 ├─ README.md
 ├─ seller_tools.py                 # 챗봇이 불러 쓰는 도구 함수 23개
+├─ olist_preprocessing_v2.ipynb    # 전처리 노트북 (원본 → 정리된 데이터)
 ├─ 0_공통 ~ 6_블랙프라이데이 노트북    # 메뉴별 기능 시연 (아래 표)
-└─ preprocessing/
-   ├─ olist_preprocessing_v2.ipynb # 전처리 노트북 (원본 → 정리된 데이터)
+└─ preprocessing/                  # 전처리 결과 데이터
    ├─ *.parquet                    # 정리된 데이터 10개 (주문, 주문×판매자, 상품, 판매 집계, 판매자·상품 통계, 리뷰, 이벤트)
    ├─ summaries.json               # 챗봇이 바로 꺼내 쓰는 요약표
    ├─ data_dictionary.json         # 열 설명
@@ -44,7 +44,7 @@ BDA/
 - 출처: [Brazilian E-Commerce Public Dataset by Olist (Kaggle)](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). 원본(`archive.zip`)은 용량이 커서 저장소에 올리지 않았어요.
 - 기간: 2016년 9월 ~ 2018년 10월 (시기별 분석은 2017년 1월 ~ 2018년 8월)
 - 정리된 데이터는 `preprocessing/` 폴더에 있어서 챗봇과 노트북은 원본 없이 바로 돌아가요.
-- 데이터를 처음부터 다시 만들고 싶으면: Kaggle에서 `archive.zip`을 받아 [전처리 노트북](https://colab.research.google.com/github/jc020230/BDA/blob/main/preprocessing/olist_preprocessing_v2.ipynb)을 실행하세요.
+- 데이터를 처음부터 다시 만들고 싶으면: Kaggle에서 `archive.zip`을 받아 [전처리 노트북](https://colab.research.google.com/github/jc020230/BDA/blob/main/olist_preprocessing_v2.ipynb)을 실행하세요.
 
 ## 주요 처리와 한계
 
