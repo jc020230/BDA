@@ -1,0 +1,126 @@
+{
+ "order_seller_mart_purchase_time_cols": [
+  "promised_days",
+  "dist_km",
+  "same_state",
+  "customer_state",
+  "seller_state",
+  "n_items",
+  "price",
+  "freight_value",
+  "weight_g",
+  "volume_cm3",
+  "category_en",
+  "seller_past_orders",
+  "seller_past_late_rate",
+  "seller_past_score"
+ ],
+ "orders_mart": {
+  "_grain": "주문 1건",
+  "purchase_time_cols": [
+   "order_purchase_timestamp",
+   "year_month",
+   "weekday",
+   "hour",
+   "customer_state",
+   "customer_region",
+   "n_items",
+   "order_value",
+   "freight_value",
+   "main_category_en",
+   "payment_type",
+   "installments",
+   "promised_days",
+   "event"
+  ],
+  "after_delivery_cols": [
+   "days",
+   "delay_days",
+   "late",
+   "delay_bin",
+   "review_score",
+   "low_review",
+   "answer_hours",
+   "review_before_delivery"
+  ],
+  "days": "구매→도착 일수",
+  "promised_days": "구매→약속 도착일 일수",
+  "delay_days": "도착일-약속일 (양수=늦음)",
+  "late": "약속보다 늦게 도착",
+  "is_sale": "취소·판매불가 아님 (매출 집계용)",
+  "is_delivered": "배송 완료",
+  "in_period": "2017-01~2018-08",
+  "order_value": "상품가 합 (매출)",
+  "event": "구매일이 속한 쇼핑 이벤트 기간",
+  "answer_hours": "리뷰 요청→고객 답변 시간",
+  "review_before_delivery": "리뷰가 물건 도착 전에 쓰임 (대부분 약속일까지 못 받은 고객)"
+ },
+ "order_seller_mart": {
+  "_grain": "주문 × 판매자",
+  "handling_days": "승인→택배사 인계 (판매자 몫)",
+  "transit_days": "인계→고객 도착 (택배 몫)",
+  "ship_late": "발송 마감일을 넘겨 인계",
+  "valid_times": "배송 완료 + 시간 값 정상",
+  "dist_km": "판매자-고객 거리 (브라질 밖 좌표 제외 후 계산)",
+  "seller_past_orders": "이 주문 구매 시각 이전에 배송이 끝난 이 판매자의 주문 수",
+  "seller_past_late_rate": "그중 늦게 도착한 비율",
+  "seller_past_score": "구매 시각 이전에 달린 이 판매자 리뷰의 평균",
+  "free_shipping": "운송비 0원",
+  "weight_g": "상품 무게 합",
+  "volume_cm3": "상품 부피 합"
+ },
+ "item_mart": {
+  "_grain": "상품 한 줄",
+  "price": "상품가",
+  "freight_value": "운송비"
+ },
+ "sales_daily": {
+  "_grain": "날짜 × 카테고리 (판매 없는 날 0)",
+  "units": "판매 수량",
+  "revenue": "매출"
+ },
+ "sales_weekly_seller_cat": {
+  "_grain": "주(월요일 시작) × 판매자 × 카테고리 (첫 판매 주부터 0 채움)",
+  "units": "발주 수요 예측의 대상"
+ },
+ "product_stats": {
+  "_grain": "상품",
+  "monthly_units": "월평균 판매량",
+  "bad_review_cost": "1~2점 리뷰 하나의 예상 월 매출 손해",
+  "reliable": "주문 20건 이상"
+ },
+ "seller_stats": {
+  "_grain": "판매자",
+  "peer_*": "같은 대표 카테고리, 주문 30건 이상 판매자의 중앙값",
+  "score_rank_in_peer": "동종 내 별점 순위",
+  "reliable": "주문 30건 이상"
+ },
+ "review_text": {
+  "_grain": "리뷰 (주문당 하나)",
+  "msg_clean": "소문자·가게 이름 익명화 처리 문장",
+  "msg_noaccent": "악센트 제거본 (키워드 검색용)",
+  "c_*": "불만 유형 키워드 표시 (글 없는 리뷰는 결측)",
+  "said_days": "리뷰에 적힌 \"N dias\" 숫자"
+ },
+ "events": {
+  "_grain": "이벤트",
+  "window_start": "영향 기간 시작",
+  "window_end": "영향 기간 끝"
+ },
+ "event_multiples": {
+  "_grain": "이벤트 × 연도 × 카테고리 (__all__ = 전체)",
+  "multiple": "이벤트 기간 하루 판매 ÷ 직전 28일(다른 이벤트 제외) 하루 평균. 평소 판매가 적으면 비움",
+  "how_to_use": "미래 이벤트 준비에는 지난해 같은 이벤트의 배수를 씀"
+ },
+ "exclusion_log": {
+  "_grain": "처리 단계별 빠지거나 표시된 행 수와 이유"
+ },
+ "_config": {
+  "PERIOD": [
+   "2017-01-01",
+   "2018-08-31"
+  ],
+  "LOW_SCORE": 2,
+  "REVIEW_SALES_DROP": 0.061
+ }
+}
