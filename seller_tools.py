@@ -11,6 +11,9 @@ seller_tools.py — Olist 판매자 챗봇용 도구 함수 모듈
     st.tools_for('openai' | 'anthropic' | 'gemini')   # API별 형식으로 바꾸기
     st.plot('plot_sales_trend', seller_id='2eb70248') # 그래프 (matplotlib Figure)
 
+기준 시점: 챗봇의 '오늘'은 분석 기간 마지막 날(2018-08-15)이에요. 판매자 진단·리뷰·브리핑·예측 모델 학습은
+그날까지 도착·답변된 정보만 써요. 시장 전체 연구 결과(summaries.json, 이벤트 배수)는 8/15까지 구매한 주문의 최종 결과예요.
+
 메뉴 구성
   🏠 store_briefing, seller_diagnosis
   1. 배송·쿠폰      delay_breakdown, shipping_whatif, delivery_estimate, coupon_advice, coupon_budget, promise_alerts
@@ -123,6 +126,10 @@ class SellerTools:
         self.calendar = pd.DataFrame(CALENDAR, columns=['event', 'event_ko', 'date', 'window_start', 'window_end'])
         for c in ['date', 'window_start', 'window_end']:
             self.calendar[c] = pd.to_datetime(self.calendar[c])
+        # 챗봇의 '오늘' = 분석 기간 마지막 날(8/15). 그날까지 알 수 있던 정보만 보이게 가려 둠 (전처리 2판 열 사용)
+        self.asof_end = self.period_end + pd.Timedelta(days=1)
+        self.osm_all, self.om_all, self.rt_all = self.osm, self.om, self.rt      # 연구·시연용 전체 결과
+        self.osm, self.om, self.rt = self._as_of_views(self.osm), self._as_of_views(self.om), self._visible_reviews(self.rt)
         # 자주 쓰는 부분 집합
         self.sales_items = self.items[self.items.is_sale & self.items.in_period]
         self.valid = self.osm[self.osm.valid_times & self.osm.in_period]
@@ -132,6 +139,27 @@ class SellerTools:
         self.TOOLS = TOOLS
 
     # ------------------------------------------------------------------ 공통
+    def _as_of_views(self, df):
+        """8/15까지 도착하지 않은 주문은 배송 결과를, 8/15까지 답변이 없는 리뷰는 별점을 가림"""
+        if 'delivered_by_asof' not in df.columns:
+            return df                                   # 전처리 1판이면 그대로
+        d = df.copy()
+        nd = ~d.delivered_by_asof.fillna(False).astype(bool)
+        for c in ['late', 'delay_days', 'days', 'transit_days', 'delay_bin', 'days_bin', 'review_before_delivery']:
+            if c in d.columns: d[c] = d[c].where(~nd)
+        for c in ['is_delivered', 'valid_times']:
+            if c in d.columns: d.loc[nd, c] = False
+        if 'ship_late' in d.columns:
+            d['ship_late'] = d.ship_late.where(d.order_delivered_carrier_date < self.asof_end)
+        nv = ~d.review_visible_asof.fillna(False).astype(bool)
+        for c in ['review_score', 'low_review', 'answer_hours']:
+            if c in d.columns: d[c] = d[c].where(~nv)
+        if 'has_review' in d.columns: d.loc[nv, 'has_review'] = False
+        return d
+
+    def _visible_reviews(self, rt):
+        return rt[rt.review_visible_asof == True] if 'review_visible_asof' in rt.columns else rt
+
     def call(self, name, args=None):
         """챗봇이 도구를 부르는 입구. 결과는 JSON으로 보낼 수 있는 dict. 에러도 dict로 돌려줌"""
         args = args or {}
@@ -228,7 +256,7 @@ class SellerTools:
         """오늘의 가게 브리핑: 최근 기간 요약 + 다가오는 이벤트 + 1순위 할 일"""
         sid = self._sid(seller_id)
         win, start, end = self._seller_window(sid, days, end=as_of)
-        rv = self.rt[(self.rt.seller_id == sid) & (self.rt.review_creation_date >= start) & (self.rt.review_creation_date <= end + pd.Timedelta(days=1))]
+        rv = self.rt[(self.rt.seller_id == sid) & (self.rt.review_answer_timestamp >= start) & (self.rt.review_answer_timestamp < end + pd.Timedelta(days=1))]   # 그 기간에 '답변이 달린' 리뷰
         diag = self.seller_diagnosis(sid)
         upcoming = self.calendar[(self.calendar.window_start > end) & (self.calendar.window_start <= end + pd.Timedelta(days=lookahead_days))]
         ev = [{'event': e.event_ko, 'date': e.date, 'days_left': (e.window_start - end).days,
@@ -585,7 +613,7 @@ class SellerTools:
         """[1] 약속일 임박 경고: as_of 시점에 아직 고객에게 도착하지 않았고 약속일이 다가오는(또는 지난) 주문.
         실제 서비스에서는 실시간 주문 상태를 넣으면 되고, 여기서는 과거 데이터로 '그날의 상태'를 재현해요."""
         sid = self._sid(seller_id)
-        sub = self.osm[(self.osm.seller_id == sid) & self.osm.is_sale]
+        sub = self.osm_all[(self.osm_all.seller_id == sid) & self.osm_all.is_sale]      # 시각으로 그날 상태를 직접 재현하므로 전체 기록 사용
         as_of = pd.Timestamp(as_of) if as_of else sub.order_purchase_timestamp.max().normalize() - pd.Timedelta(days=14)
         if '_route_transit' not in self._cache:
             self._cache['_route_transit'] = self.valid.groupby(['seller_state', 'customer_state']).transit_days.median()
@@ -682,11 +710,14 @@ class SellerTools:
             return {'scope': 'market', 'monthly': mkt.reset_index()}
         sid = self._sid(seller_id)
         sub = self.osm[(self.osm.seller_id == sid) & self.osm.is_sale & self.osm.in_period]
+        nxt = self.period_end + pd.Timedelta(days=1)
+        last_full = str(self.period_end.to_period('M') if nxt.day == 1 else nxt.to_period('M') - 1)
+        sub = sub[sub.year_month <= last_full]                     # 다 채워진 달만 (반달짜리 달은 증감이 왜곡돼서)
         m = sub.groupby('year_month').agg(orders=('order_id', 'nunique'), revenue=('price', 'sum'))
         m['revenue_mom'] = m.revenue.pct_change()
         m['market_revenue_mom'] = mkt.revenue_mom.reindex(m.index)
         best = m.revenue.idxmax() if len(m) else None
-        return {'scope': 'seller', 'seller_id': sid, 'monthly': m.reset_index(), 'best_month': best,
+        return {'scope': 'seller', 'seller_id': sid, 'monthly': m.reset_index(), 'best_month': best, 'last_full_month': last_full,
                 'total_revenue': m.revenue.sum(), 'last_month_mom': m.revenue_mom.iloc[-1] if len(m) > 1 else None}
 
     def category_ranking(self, seller_id=None, by='revenue', top=10):
