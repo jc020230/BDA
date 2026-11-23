@@ -31,9 +31,15 @@
  },
  {
   "step": "orders",
-  "count": 349,
+  "count": 2529,
   "action": "in_period=False로 표시",
-  "reason": "2017-01 ~ 2018-08 밖 (시기별 분석에서 제외)"
+  "reason": "2017-01-01 ~ 2018-08-15 밖 (시기별 분석에서 제외)"
+ },
+ {
+  "step": "orders",
+  "count": 2180,
+  "action": "in_period=False로 표시",
+  "reason": "2018-08-16 ~ 08-31: 데이터 수집이 끊겨 주문이 다 들어오지 않은 구간"
  },
  {
   "step": "orders",
@@ -46,6 +52,18 @@
   "count": 4976,
   "action": "review_before_delivery 열로 표시",
   "reason": "물건 도착 전에 쓰인 리뷰"
+ },
+ {
+  "step": "orders",
+  "count": 2314,
+  "action": "delivered_by_asof=False로 표시",
+  "reason": "기간 안에 샀지만 8/16 이후 도착 (연구 분석에는 포함, 챗봇 현재 상태에서는 제외)"
+ },
+ {
+  "step": "orders",
+  "count": 3250,
+  "action": "review_visible_asof=False로 표시",
+  "reason": "기간 안에 샀지만 리뷰 답변이 8/16 이후 (연구 분석에는 포함, 챗봇 현재 상태에서는 제외)"
  },
  {
   "step": "order_seller",

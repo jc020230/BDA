@@ -2,56 +2,56 @@
  "delay_vs_score": [
   {
    "delay_bin": "일찍 옴",
-   "orders": 88381,
-   "mean_score": 4.295,
-   "low_rate": 0.092
+   "orders": 86382,
+   "mean_score": 4.291,
+   "low_rate": 0.093
   },
   {
    "delay_bin": "당일",
-   "orders": 1291,
-   "mean_score": 4.034,
-   "low_rate": 0.124
+   "orders": 1202,
+   "mean_score": 4.011,
+   "low_rate": 0.128
   },
   {
    "delay_bin": "1일 늦음",
-   "orders": 824,
-   "mean_score": 3.731,
-   "low_rate": 0.197
+   "orders": 808,
+   "mean_score": 3.716,
+   "low_rate": 0.2
   },
   {
    "delay_bin": "2~3일 늦음",
-   "orders": 1045,
-   "mean_score": 2.941,
-   "low_rate": 0.421
+   "orders": 1031,
+   "mean_score": 2.928,
+   "low_rate": 0.425
   },
   {
    "delay_bin": "4~5일 늦음",
-   "orders": 900,
+   "orders": 894,
    "mean_score": 2.344,
-   "low_rate": 0.603
+   "low_rate": 0.604
   },
   {
    "delay_bin": "6일+ 늦음",
-   "orders": 3762,
-   "mean_score": 1.737,
-   "low_rate": 0.782
+   "orders": 3754,
+   "mean_score": 1.734,
+   "low_rate": 0.784
   }
  ],
  "same_days_kept_vs_broken": [
   {
    "days_bin": "0~5일",
-   "kept": 4.45,
-   "broken": 4.6
+   "kept": 4.44,
+   "broken": 4.67
   },
   {
    "days_bin": "5~10일",
    "kept": 4.37,
-   "broken": 3.59
+   "broken": 3.52
   },
   {
    "days_bin": "10~15일",
    "kept": 4.28,
-   "broken": 3.2
+   "broken": 3.19
   },
   {
    "days_bin": "15~20일",
@@ -79,59 +79,66 @@
   },
   {
    "customer_state": "MA",
-   "orders": 713,
-   "low_rate": 0.2,
+   "orders": 710,
+   "low_rate": 0.201,
    "late_rate": 0.175,
-   "mean_score": 3.829
+   "mean_score": 3.824
   },
   {
    "customer_state": "SE",
-   "orders": 332,
-   "low_rate": 0.19,
-   "late_rate": 0.154,
+   "orders": 330,
+   "low_rate": 0.191,
+   "late_rate": 0.155,
    "mean_score": 3.9
   },
   {
    "customer_state": "RJ",
-   "orders": 12310,
-   "low_rate": 0.183,
-   "late_rate": 0.121,
-   "mean_score": 3.965
+   "orders": 12068,
+   "low_rate": 0.185,
+   "late_rate": 0.124,
+   "mean_score": 3.956
   },
   {
    "customer_state": "PA",
-   "orders": 942,
-   "low_rate": 0.18,
+   "orders": 940,
+   "low_rate": 0.179,
    "late_rate": 0.113,
-   "mean_score": 3.913
+   "mean_score": 3.915
   },
   {
    "customer_state": "CE",
-   "orders": 1273,
-   "low_rate": 0.172,
-   "late_rate": 0.138,
-   "mean_score": 3.94
+   "orders": 1266,
+   "low_rate": 0.173,
+   "late_rate": 0.139,
+   "mean_score": 3.936
   },
   {
    "customer_state": "BA",
-   "orders": 3253,
-   "low_rate": 0.17,
-   "late_rate": 0.122,
-   "mean_score": 3.93
+   "orders": 3222,
+   "low_rate": 0.172,
+   "late_rate": 0.123,
+   "mean_score": 3.926
   },
   {
    "customer_state": "PI",
-   "orders": 475,
-   "low_rate": 0.162,
-   "late_rate": 0.139,
-   "mean_score": 3.994
+   "orders": 472,
+   "low_rate": 0.161,
+   "late_rate": 0.14,
+   "mean_score": 3.996
   },
   {
    "customer_state": "AC",
-   "orders": 80,
-   "low_rate": 0.15,
+   "orders": 79,
+   "low_rate": 0.152,
    "late_rate": 0.038,
-   "mean_score": 4.088
+   "mean_score": 4.076
+  },
+  {
+   "customer_state": "PE",
+   "orders": 1572,
+   "low_rate": 0.15,
+   "late_rate": 0.097,
+   "mean_score": 4.078
   },
   {
    "customer_state": "RR",
@@ -142,31 +149,45 @@
   },
   {
    "customer_state": "PB",
-   "orders": 516,
+   "orders": 508,
    "low_rate": 0.149,
-   "late_rate": 0.105,
-   "mean_score": 4.074
-  },
-  {
-   "customer_state": "PE",
-   "orders": 1587,
-   "low_rate": 0.148,
-   "late_rate": 0.096,
-   "mean_score": 4.082
+   "late_rate": 0.106,
+   "mean_score": 4.07
   },
   {
    "customer_state": "ES",
-   "orders": 1992,
-   "low_rate": 0.138,
-   "late_rate": 0.107,
-   "mean_score": 4.079
+   "orders": 1961,
+   "low_rate": 0.14,
+   "late_rate": 0.109,
+   "mean_score": 4.072
+  },
+  {
+   "customer_state": "GO",
+   "orders": 1920,
+   "low_rate": 0.134,
+   "late_rate": 0.067,
+   "mean_score": 4.096
+  },
+  {
+   "customer_state": "DF",
+   "orders": 2027,
+   "low_rate": 0.134,
+   "late_rate": 0.058,
+   "mean_score": 4.128
   },
   {
    "customer_state": "MS",
-   "orders": 701,
-   "low_rate": 0.133,
+   "orders": 694,
+   "low_rate": 0.134,
    "late_rate": 0.097,
-   "mean_score": 4.162
+   "mean_score": 4.156
+  },
+  {
+   "customer_state": "RN",
+   "orders": 463,
+   "low_rate": 0.133,
+   "late_rate": 0.095,
+   "mean_score": 4.137
   },
   {
    "customer_state": "AM",
@@ -176,173 +197,152 @@
    "mean_score": 4.243
   },
   {
-   "customer_state": "DF",
-   "orders": 2074,
-   "low_rate": 0.132,
-   "late_rate": 0.057,
-   "mean_score": 4.134
-  },
-  {
-   "customer_state": "GO",
-   "orders": 1950,
-   "low_rate": 0.132,
-   "late_rate": 0.066,
-   "mean_score": 4.104
-  },
-  {
-   "customer_state": "RN",
-   "orders": 470,
-   "low_rate": 0.131,
-   "late_rate": 0.094,
-   "mean_score": 4.143
-  },
-  {
    "customer_state": "SC",
-   "orders": 3537,
-   "low_rate": 0.13,
-   "late_rate": 0.082,
-   "mean_score": 4.134
+   "orders": 3479,
+   "low_rate": 0.131,
+   "late_rate": 0.084,
+   "mean_score": 4.128
   },
   {
    "customer_state": "MT",
-   "orders": 885,
-   "low_rate": 0.128,
-   "late_rate": 0.06,
-   "mean_score": 4.145
+   "orders": 874,
+   "low_rate": 0.127,
+   "late_rate": 0.061,
+   "mean_score": 4.148
   },
   {
    "customer_state": "TO",
-   "orders": 274,
+   "orders": 273,
    "low_rate": 0.121,
    "late_rate": 0.099,
-   "mean_score": 4.154
-  },
-  {
-   "customer_state": "RO",
-   "orders": 243,
-   "low_rate": 0.12,
-   "late_rate": 0.029,
-   "mean_score": 4.165
+   "mean_score": 4.151
   },
   {
    "customer_state": "RS",
-   "orders": 5327,
-   "low_rate": 0.119,
-   "late_rate": 0.061,
-   "mean_score": 4.185
+   "orders": 5243,
+   "low_rate": 0.121,
+   "late_rate": 0.062,
+   "mean_score": 4.178
+  },
+  {
+   "customer_state": "RO",
+   "orders": 242,
+   "low_rate": 0.12,
+   "late_rate": 0.029,
+   "mean_score": 4.162
   },
   {
    "customer_state": "MG",
-   "orders": 11319,
-   "low_rate": 0.117,
-   "late_rate": 0.046,
-   "mean_score": 4.194
+   "orders": 11094,
+   "low_rate": 0.118,
+   "late_rate": 0.047,
+   "mean_score": 4.188
   },
   {
    "customer_state": "PR",
-   "orders": 4903,
-   "low_rate": 0.109,
+   "orders": 4797,
+   "low_rate": 0.111,
    "late_rate": 0.041,
-   "mean_score": 4.241
+   "mean_score": 4.232
   },
   {
    "customer_state": "SP",
-   "orders": 40399,
-   "low_rate": 0.107,
+   "orders": 39190,
+   "low_rate": 0.108,
    "late_rate": 0.045,
-   "mean_score": 4.247
+   "mean_score": 4.242
   },
   {
    "customer_state": "AP",
-   "orders": 67,
-   "low_rate": 0.061,
+   "orders": 66,
+   "low_rate": 0.062,
    "late_rate": 0.03,
-   "mean_score": 4.242
+   "mean_score": 4.231
   }
  ],
  "region_summary": [
   {
    "customer_region": "남동부",
-   "median_days": 8.691,
-   "late_rate": 0.061,
-   "mean_score": 4.18
+   "median_days": 8.852,
+   "late_rate": 0.062,
+   "mean_score": 4.174
   },
   {
    "customer_region": "남부",
-   "median_days": 12.112,
-   "late_rate": 0.059,
-   "mean_score": 4.192
+   "median_days": 12.204,
+   "late_rate": 0.06,
+   "mean_score": 4.185
   },
   {
    "customer_region": "북동부",
-   "median_days": 17.3,
+   "median_days": 17.374,
    "late_rate": 0.128,
-   "mean_score": 3.968
+   "mean_score": 3.964
   },
   {
    "customer_region": "북부",
-   "median_days": 20.155,
+   "median_days": 20.168,
    "late_rate": 0.086,
-   "mean_score": 4.031
+   "mean_score": 4.03
   },
   {
    "customer_region": "중서부",
-   "median_days": 13.282,
-   "late_rate": 0.065,
-   "mean_score": 4.129
+   "median_days": 13.412,
+   "late_rate": 0.066,
+   "mean_score": 4.124
   }
  ],
  "answer_speed_vs_score": [
   {
    "speed": "가장 빠름 25%",
-   "median_hours": 20.585,
-   "mean_score": 4.032,
-   "low_rate": 0.167
+   "median_hours": 20.578,
+   "mean_score": 4.022,
+   "low_rate": 0.169
   },
   {
    "speed": "빠름",
-   "median_hours": 34.144,
-   "mean_score": 4.277,
-   "low_rate": 0.097
+   "median_hours": 34.169,
+   "mean_score": 4.271,
+   "low_rate": 0.099
   },
   {
    "speed": "느림",
-   "median_hours": 63.925,
-   "mean_score": 4.164,
-   "low_rate": 0.123
+   "median_hours": 63.987,
+   "mean_score": 4.16,
+   "low_rate": 0.124
   },
   {
    "speed": "가장 느림 25%",
-   "median_hours": 107.64,
-   "mean_score": 4.152,
-   "low_rate": 0.124
+   "median_hours": 107.794,
+   "mean_score": 4.147,
+   "low_rate": 0.125
   }
  ],
  "review_before_delivery": {
-  "share_of_reviews": 0.052,
+  "share_of_reviews": 0.053,
   "table": [
    {
     "before_delivery": false,
-    "orders": 90590,
+    "orders": 88481,
     "late_rate": 0.018,
-    "low_rate": 0.095,
-    "mean_score": 4.278
+    "low_rate": 0.096,
+    "mean_score": 4.274
    },
    {
     "before_delivery": true,
-    "orders": 4970,
-    "late_rate": 0.956,
-    "low_rate": 0.727,
-    "mean_score": 1.933
+    "orders": 4955,
+    "late_rate": 0.955,
+    "low_rate": 0.728,
+    "mean_score": 1.93
    }
   ]
  },
  "said_days": {
-  "n": 520,
+  "n": 512,
   "median_said": 10.0,
-  "median_actual": 12.377158564814815,
-  "mean_score": 3.28,
-  "overall_mean_score": 4.16
+  "median_actual": 12.615873842592592,
+  "mean_score": 3.27,
+  "overall_mean_score": 4.15
  },
  "complaints_late_vs_ontime": {
   "late": {
@@ -355,7 +355,7 @@
   },
   "on_time": {
    "c_not_received": 0.138,
-   "c_delay": 0.083,
+   "c_delay": 0.084,
    "c_wrong_item": 0.103,
    "c_defect": 0.085,
    "c_missing_part": 0.109,
@@ -476,153 +476,147 @@
    "orders": 6233,
    "revenue": 878044.27,
    "revenue_mom": 0.02
-  },
-  {
-   "year_month": "2018-08",
-   "orders": 6421,
-   "revenue": 848860.1,
-   "revenue_mom": -0.03
   }
  ],
  "category_rank": [
   {
    "category_ko": "건강·뷰티",
-   "revenue": 1251145.54,
-   "share": 0.093
+   "revenue": 1210184.75,
+   "share": 0.0917
   },
   {
    "category_ko": "시계·선물",
-   "revenue": 1194824.97,
-   "share": 0.0888
+   "revenue": 1177147.73,
+   "share": 0.0892
   },
   {
    "category_ko": "침구·욕실·식탁",
-   "revenue": 1035485.07,
-   "share": 0.077
+   "revenue": 1014921.3,
+   "share": 0.0769
   },
   {
    "category_ko": "스포츠·레저",
-   "revenue": 977728.77,
-   "share": 0.0727
+   "revenue": 963063.34,
+   "share": 0.073
   },
   {
    "category_ko": "컴퓨터 액세서리",
-   "revenue": 902922.7,
-   "share": 0.0671
+   "revenue": 892960.16,
+   "share": 0.0677
   },
   {
    "category_ko": "가구·인테리어",
-   "revenue": 721584.27,
-   "share": 0.0537
-  },
-  {
-   "category_ko": "생활용품",
-   "revenue": 625538.73,
-   "share": 0.0465
+   "revenue": 711238.33,
+   "share": 0.0539
   },
   {
    "category_ko": "쿨 아이템",
-   "revenue": 619724.39,
-   "share": 0.0461
+   "revenue": 615596.3,
+   "share": 0.0467
+  },
+  {
+   "category_ko": "생활용품",
+   "revenue": 607058.62,
+   "share": 0.046
   },
   {
    "category_ko": "자동차용품",
-   "revenue": 585177.48,
-   "share": 0.0435
+   "revenue": 569057.17,
+   "share": 0.0431
   },
   {
    "category_ko": "정원용품",
-   "revenue": 479650.06,
-   "share": 0.0357
+   "revenue": 475688.27,
+   "share": 0.036
   },
   {
    "category_ko": "장난감",
-   "revenue": 475702.04,
-   "share": 0.0354
+   "revenue": 470243.41,
+   "share": 0.0356
   },
   {
    "category_ko": "유아용품",
-   "revenue": 408941.03,
-   "share": 0.0304
+   "revenue": 403706.23,
+   "share": 0.0306
   },
   {
    "category_ko": "향수",
-   "revenue": 391770.21,
-   "share": 0.0291
+   "revenue": 382681.88,
+   "share": 0.029
   },
   {
    "category_ko": "휴대폰·통신",
-   "revenue": 322082.46,
-   "share": 0.0239
+   "revenue": 314378.92,
+   "share": 0.0238
   },
   {
    "category_ko": "사무용 가구",
-   "revenue": 272279.82,
-   "share": 0.0202
+   "revenue": 271467.02,
+   "share": 0.0206
   }
  ],
  "category_pie_top10": [
   {
    "category_ko": "건강·뷰티",
-   "share": 0.093
+   "share": 0.0917
   },
   {
    "category_ko": "시계·선물",
-   "share": 0.0888
+   "share": 0.0892
   },
   {
    "category_ko": "침구·욕실·식탁",
-   "share": 0.077
+   "share": 0.0769
   },
   {
    "category_ko": "스포츠·레저",
-   "share": 0.0727
+   "share": 0.073
   },
   {
    "category_ko": "컴퓨터 액세서리",
-   "share": 0.0671
+   "share": 0.0677
   },
   {
    "category_ko": "가구·인테리어",
-   "share": 0.0537
-  },
-  {
-   "category_ko": "생활용품",
-   "share": 0.0465
+   "share": 0.0539
   },
   {
    "category_ko": "쿨 아이템",
-   "share": 0.0461
+   "share": 0.0467
+  },
+  {
+   "category_ko": "생활용품",
+   "share": 0.046
   },
   {
    "category_ko": "자동차용품",
-   "share": 0.0435
+   "share": 0.0431
   },
   {
    "category_ko": "정원용품",
-   "share": 0.0357
+   "share": 0.036
   },
   {
    "category_ko": "기타",
-   "share": 0.3759
+   "share": 0.3758
   }
  ],
  "category_units_rank": {
-  "침구·욕실·식탁": 11089,
-  "건강·뷰티": 9585,
-  "스포츠·레저": 8573,
-  "가구·인테리어": 8229,
-  "컴퓨터 액세서리": 7760,
-  "생활용품": 6903,
-  "시계·선물": 5965,
-  "휴대폰·통신": 4518,
-  "정원용품": 4323,
-  "자동차용품": 4195,
-  "장난감": 4059,
-  "쿨 아이템": 3772,
-  "향수": 3373,
-  "유아용품": 3032,
-  "전자제품": 2754
+  "침구·욕실·식탁": 10862,
+  "건강·뷰티": 9283,
+  "스포츠·레저": 8399,
+  "가구·인테리어": 8100,
+  "컴퓨터 액세서리": 7617,
+  "생활용품": 6667,
+  "시계·선물": 5850,
+  "휴대폰·통신": 4446,
+  "정원용품": 4284,
+  "자동차용품": 4082,
+  "장난감": 3999,
+  "쿨 아이템": 3734,
+  "향수": 3290,
+  "유아용품": 2966,
+  "전자제품": 2722
  },
  "black_friday": {
   "bf_day_orders": 1173,
@@ -631,9 +625,9 @@
   "bf_week_revenue": 306477.16,
   "baseline_week_revenue": 91721.77,
   "bf_day_late_rate": 0.173,
-  "overall_late_rate": 0.068,
+  "overall_late_rate": 0.069,
   "bf_day_mean_score": 3.78,
-  "overall_mean_score": 4.16,
+  "overall_mean_score": 4.15,
   "category_lift_top10": {
    "정원용품": 6.43,
    "침구·욕실·식탁": 5.86,
